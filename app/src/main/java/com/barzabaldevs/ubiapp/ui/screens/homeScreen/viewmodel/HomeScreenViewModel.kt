@@ -20,15 +20,14 @@ class HomeScreenViewModel @Inject constructor
         viewModelScope.launch {
             Log.i("KlyxDevs", "Adress : $address")
             try {
-                val response = getCoordinatesUseCase(address)
+                val response = getCoordinatesUseCase(address)?.firstOrNull()
                 Log.i("KlyxDevs", "cord1 : $response")
                 if (response != null) {
-                    val location = response.results.first().geometry.location
-                    _coordinates.value = location.lat to location.lng
+                    _coordinates.value = response.lat.toDouble() to response.lon.toDouble()
                     Log.i("KlyxDevs", "cord1 : $_coordinates.value")
                 }
             } catch (e: Exception) {
-                Log.e("GeocodingViewModel", "Error al obtener coordenadas", e)
+                Log.e("KlyxDevs", "Error al obtener coordenadas", e)
             }
         }
     }

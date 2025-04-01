@@ -12,7 +12,7 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkProvider {
-    private const val BASE_URL = "https://maps.googleapis.com/maps/api/"
+    private const val BASE_URL = "https://nominatim.openstreetmap.org/"
 
     @Provides
     @Singleton
