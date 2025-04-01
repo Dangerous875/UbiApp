@@ -1,4 +1,4 @@
-package com.barzabaldevs.ubiapp.ui.theme
+package com.barzabaldevs.ubiapp.ui.core.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

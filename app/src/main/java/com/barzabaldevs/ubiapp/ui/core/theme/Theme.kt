@@ -1,4 +1,4 @@
-package com.barzabaldevs.ubiapp.ui.theme
+package com.barzabaldevs.ubiapp.ui.core.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
