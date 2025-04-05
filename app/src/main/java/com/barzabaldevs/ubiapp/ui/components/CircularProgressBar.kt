@@ -56,7 +56,7 @@ fun CircularProgressBar(message : String) {
         AsyncImage(
             modifier = Modifier
                 .size(250.dp),
-            model = R.drawable.ic_launcher_background,
+            model = R.drawable.search_image,
             contentDescription = "Logo",
             contentScale = ContentScale.Inside
         )

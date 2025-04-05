@@ -21,7 +21,9 @@ fun NavigationWrapper(padding: PaddingValues) {
         startDestination = HomeScreenRoute
     ) {
         composable<HomeScreenRoute> {
-            HomeScreen()
+            HomeScreen(navigateToMap = {lat , long ->
+                navController.navigate(CoordinateScreenRoute(lat,long))
+            })
         }
         composable<CoordinateScreenRoute> {
             val safeArgs = it.toRoute<CoordinateScreenRoute>()

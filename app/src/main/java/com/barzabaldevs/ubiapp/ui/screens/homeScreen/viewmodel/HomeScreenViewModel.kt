@@ -15,14 +15,18 @@ class HomeScreenViewModel @Inject constructor
     (private val getCoordinatesUseCase: GetCoordinatesUseCase) : ViewModel() {
     private val _coordinates = MutableStateFlow<Pair<Double, Double>?>(null)
     val coordinates = _coordinates.asStateFlow()
+    private val _isLoading = MutableStateFlow(false)
+    val isLoading = _isLoading.asStateFlow()
 
     fun fetchCoordinates(address: String) {
+        _isLoading.value = true
         viewModelScope.launch {
             Log.i("KlyxDevs", "Adress : $address")
             try {
                 val response = getCoordinatesUseCase(address)?.firstOrNull()
                 Log.i("KlyxDevs", "cord1 : $response")
                 if (response != null) {
+                    _isLoading.value = false
                     _coordinates.value = response.lat.toDouble() to response.lon.toDouble()
                     Log.i("KlyxDevs", "cord1 : $_coordinates.value")
                 }
